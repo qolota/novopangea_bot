@@ -1,0 +1,72 @@
+{
+  "name": "wax_bot",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@seald-io/nedb": "^4.0.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "@waxio/waxjs": "^1.5.0",
+    "atomicassets": "^1.4.2",
+    "babel-eslint": "^10.1.0",
+    "big-number": "^2.0.0",
+    "buffer": "^6.0.3",
+    "clusters": "^0.0.4",
+    "eosjs-account-name": "^2.3.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-security": "^1.7.1",
+    "jest": "^29.5.0",
+    "jslint": "^0.12.1",
+    "json2csv": "^5.0.7",
+    "lodash": "^4.17.21",
+    "lodash.combinations": "^18.11.1",
+    "lodash.multipermutations": "^1.0.0",
+    "lodash.product": "^18.10.0",
+    "long": "^5.2.3",
+    "moment": "^2.29.3",
+    "nedb": "^1.8.0",
+    "pad-left": "^2.1.0",
+    "query-string": "^7.1.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "telegraf": "^4.12.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "jest": "jest"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
+  }
+}

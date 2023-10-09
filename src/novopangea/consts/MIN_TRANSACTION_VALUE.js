@@ -1,0 +1,11 @@
+const RESOURCES = require('./RESOURSES');
+
+const MIN_TRANSACTION_VALUE = {
+    [RESOURCES.NOVOE]: 65,
+    [RESOURCES.NOVOM]: 60,
+    [RESOURCES.NOVOF]: 55,
+    [RESOURCES.OBSD]: 1,
+    [RESOURCES.NOVO]: 3,
+};
+
+module.exports = MIN_TRANSACTION_VALUE;
