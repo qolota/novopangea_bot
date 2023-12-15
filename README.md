@@ -12,7 +12,7 @@
 ## Donations 💵💵💵
 This is purely enthusiastic project and open source. You can use it for free.
 
-If you'd like the bot please support me by sending crypto or assets to my wallet: [ete2o.c.wam](https://waxblock.io/account/ete2o.c.wam)
+If you'd like the bot please support me by sending crypto or assets to my wallet: [ete2o.c.wam](https://atomichub.io/profile/wax-mainnet/ete2o.c.wam)
 
 ## Install Git 
 Download and install Git from the website [https://git-scm.com/](https://git-scm.com/)
@@ -53,17 +53,6 @@ yarn
 ```
 
 wait until downloading will be completed
-
-
-## Add your wallet name
-
-Open the file `./src/configs/ACCOUNT_CAPABILITIES.js` and change `<ADD_YOUR_WALLET_NAME_HERE>` to your wallet name e.g. `ete2o.c.wam`
-
-
-## Change Novopangea bot values
-
-If you'd like to change how the bot works open the file `./src/novopangea/consts/ECONOMY_VALUES.js` and change values.\
-Read comments in the file to get more information.
 
 
 ## Start Novopangea bot web-page 

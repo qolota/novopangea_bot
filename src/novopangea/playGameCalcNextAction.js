@@ -1381,7 +1381,6 @@ const playGameCalcNextAction = async ({
         upgrades,
     });
 
-    console.log(economyValues);
     if (finishUpgradesAction != null) {
         return finishUpgradesAction;
     }
@@ -1420,4 +1419,4 @@ const playGameCalcNextAction = async ({
     };
 };
 
-module.exports = playGameCalcNextAction;
+export default playGameCalcNextAction;

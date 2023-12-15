@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const {getCache, writeCache} = require('./cache');
 const {WAX_BLOCKS_PROVIDER} = require('../configs/ENDPOINTS');
 
@@ -30,4 +29,4 @@ const fetchWaxAccount = async (settings) => {
   return account;
 };
 
-module.exports = fetchWaxAccount;
+export default fetchWaxAccount;

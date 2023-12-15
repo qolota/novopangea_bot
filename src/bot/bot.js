@@ -3,7 +3,6 @@ import _ from 'lodash';
 import { wax, execTransaction } from '../core/wax';
 import log from '../utils/log';
 import fetchWaxAccount from '../core/fetchWaxAccount';
-import ACCOUNT_CAPABILITIES from '../configs/ACCOUNT_CAPABILITIES';
 
 // novopangea
 import playGameCalcNextAction from '../novopangea/playGameCalcNextAction';

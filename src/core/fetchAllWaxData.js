@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const fetchWaxData = require('./fetchWaxData');
 
 const DEFAULT_LIMIT = 1000;

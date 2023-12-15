@@ -59,16 +59,6 @@ const exchangeResources = ({
     maxBalances,
     requestedResources,
 }) => {
-    const otherBalances = _([
-        RESOURCES.NOVOE,
-        RESOURCES.NOVOM,
-        RESOURCES.NOVOF,
-    ])
-        .map(symbol => findResource({
-            resources: balances,
-            symbol,
-        }))
-        .value();
     const maxNoneNovaBalances = _([
         RESOURCES.NOVOE,
         RESOURCES.NOVOM,

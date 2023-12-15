@@ -45,7 +45,7 @@ const fetchAccountTransfers = async ({
                 switch(asset.schema.schema_name) {
                     case 'worker':
                         const workerLevel = Number(asset.data.rarity.split(' ')[1]);
-                        const isSkilledWorker = asset.data.realm != 'Unskilled';
+                        const isSkilledWorker = asset.data.realm !== 'Unskilled';
                         return {
                             assetId: asset.asset_id,
                             level: workerLevel,

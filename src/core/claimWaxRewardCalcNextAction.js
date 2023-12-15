@@ -31,4 +31,4 @@ const claimWaxRewardCalcNextAction = async ({
     };
 };
 
-module.exports = claimWaxRewardCalcNextAction;
+export default claimWaxRewardCalcNextAction;

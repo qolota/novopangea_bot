@@ -37,7 +37,7 @@ const fetchAllWaxData2 = async ({
             ignoreHttpErrorStatuses,
         });
 
-        if (data.code == 'ignore_http_status') {
+        if (data.code === 'ignore_http_status') {
             lowerBound = customLowerBoundProcessor({
                 lowerBound,
             });

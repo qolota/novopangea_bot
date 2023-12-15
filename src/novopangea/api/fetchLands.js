@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
 const CONTRACTS = require('../consts/CONTRACTS');
 const fetchDistricts = require('./fetchDistricts');

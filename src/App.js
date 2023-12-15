@@ -1,5 +1,4 @@
 import './App.css';
-import _ from 'lodash';
 import { useCallback, useEffect, useState } from 'react';
 import { wax } from './core/wax';
 import { startBot, stopBot } from './bot/bot';
@@ -83,7 +82,7 @@ function App() {
         .params,
     });
     setAllBotSettings(nextAllBotSettigns);
-  }, [allBotSettings, setAllBotSettings]);
+  }, [setAllBotSettings]);
 
   const npSetJobProfit = useCallback(({
     botSettings,
@@ -175,8 +174,15 @@ function App() {
       }}
     >
       <div>Hi there, this page contains WAX bots. You assume all possible risks start using this bot, please check terms and condition of each WAX project if bots allowed.</div>
-      <div><b>All changed settings applied immediately!!!</b></div>
-      <br />
+      <br/>
+      <br/>
+      <div>
+        <div>🎄 Wishing you a Merry Christmas and a joyful holiday season! 🎅 May your days be filled with warmth, laughter, and the love of family and friends. 🎁 Let the ❄️ snowflakes bring magic to your days and the spirit of the season fill your heart with happiness. ⛄ Have a wonderful time, and may the 🕯️ light of peace and goodwill shine upon you. Happy holidays! 🦌🔔</div>
+        <br/>
+        <div><b>If you'd like the bot please support me by sending crypto or assets to my wallet:</b> <a href="https://atomichub.io/profile/wax-mainnet/ete2o.c.wam"  target='_blank' rel="noreferrer">ete2o.c.wam</a></div>
+      </div>
+      <br/>
+      <br/>
       {isBotStarted ? (
         <button onClick={_stopBot}>Stop</button>
       ) : (
@@ -186,6 +192,11 @@ function App() {
       <br />
       <br />
       <button onClick={resetSettings}>Reset Settings</button>
+      <div><b>All changed settings applied immediately!!!</b></div>
+      <br />
+      <div>
+        Open a browser developer console to monitor how bot is workign. To open a browser console press <code>Option + ⌘ + J</code> (on macOS), or <code>Shift + CTRL + J</code> (on Windows/Linux) in Chrome browser.
+      </div>
       <br />
       <br />
       {allBotSettings.map(botSettings => {
@@ -193,11 +204,11 @@ function App() {
         return <div key={botSettings.key} className='bot-settings'>
           <h2>{botSettings.name}</h2>
           {botSettings.key === 'claimwax'
-            ? <div>Visit WAX wallet <a href="https://wallet.wax.io/staking-rewards" target='_blank' rel="noreferrer" >staking page</a>.</div>
+            ? <div>Visit WAX wallet <a href="https://wallet.wax.io/staking-rewards" target='_blank' rel="noreferrer">staking page</a>.</div>
             : null
           }
           {botSettings.key === 'novopangea'
-            ? <div>Visit novopangea game <a href="https://novopangea.io/" target='_blank' rel="noreferrer" >website</a>.</div>
+            ? <div>Visit novopangea game <a href="https://novopangea.io/" target='_blank' rel="noreferrer">website</a>.</div>
             : null
           }
           <br/>
