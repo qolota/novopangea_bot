@@ -38,7 +38,7 @@ const startGameBot = ({ calcNextAction, gameSettings }) => {
       const account = await fetchWaxAccount({
         accountName: wax.userAccount,
       });
-      if (account.cpuLoad > 0.98) {
+      if (account.cpuLoad > 0.50) {
         log({
           project: gameSettings.name,
           message: `<cpu_limit> There is no available CPU. CPU usage is ${_.round(
