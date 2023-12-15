@@ -233,9 +233,7 @@ function App() {
                 {key: 'ENABLE_REST_SKILLED_WORKERS', name: 'Rest Skilled Workers in own or other buildings',},
                 {key: 'ENABLE_SHIFT_UNSKILLED_WORKERS', name: 'Start Unskilled Workers shift in own or other buildings',},
                 {key: 'ENABLE_REST_UNSKILLED_WORKERS', name: 'Rest Unskilled Workers in own or other buildings',},
-                {key: 'ENABLE_WORKER_UPGRADES', name: 'Upgrage workers',},
                 {key: 'ENABLE_RENEW_RENT_LANDS', name: 'Prepare and renew own lands',},
-                {key: 'ENABLE_RENT_EXTERNAL_LANDS', name: 'Rent external lands',},
               ].map((activity) => {
                 const botActivityCheckboxId = `np-bot-activities-checkbox-id-${activity.key}`;
                 return <div key={activity.key}>
@@ -294,8 +292,26 @@ function App() {
           }
           {botSettings.key === 'novopangea'
             ? <>
-              <h4>Max Land Rent Price (OBSD/sec)</h4>
+              <h4>Rent external lands (OBSD/sec)</h4>
               <div>Only applied for lands owned by other players</div>
+              <br/>
+              <div>
+                <input  
+                  type="checkbox"
+                  id={`${botSettings.params.ENABLE_RENT_EXTERNAL_LANDS}-checkbox`}
+                  checked={botSettings.params.ENABLE_RENT_EXTERNAL_LANDS}
+                  onChange={() => {
+                    toggleActivity({
+                      botSettings,
+                      activity: {
+                        key: 'ENABLE_RENT_EXTERNAL_LANDS',
+                      },
+                    });
+                  }}
+                />
+                <label htmlFor={`${botSettings.params.ENABLE_RENT_EXTERNAL_LANDS}-checkbox`}>Enable</label>{' '}
+              </div>
+              <br/>
               <input type="number" value={botSettings.params.MAX_LAND_RENT_PRICE_OBSD} onChange={(event) => {
                 npSetMaxLandRentPrice({
                   botSettings,
@@ -307,8 +323,26 @@ function App() {
           }
           {botSettings.key === 'novopangea'
             ? <>
-              <h4>Upgrage Skilled Workers to Level</h4>
+              <h4>Upgrage Skilled Workers (Level)</h4>
               <div>If not enough resources for upgrade, workers will start shifts</div>
+              <br/>
+              <div>
+                <input  
+                  type="checkbox"
+                  id={`${botSettings.params.ENABLE_WORKER_UPGRADES}-checkbox`}
+                  checked={botSettings.params.ENABLE_WORKER_UPGRADES}
+                  onChange={() => {
+                    toggleActivity({
+                      botSettings,
+                      activity: {
+                        key: 'ENABLE_WORKER_UPGRADES',
+                      },
+                    });
+                  }}
+                />
+                <label htmlFor={`${botSettings.params.ENABLE_WORKER_UPGRADES}-checkbox`}>Enable</label>{' '}
+              </div>
+              <br/>
               <input type="number" value={botSettings.params.UPGRADE_WORKERS_TO_LVL} onChange={(event) => {
                 npSetUpgradeWorkersToLevel({
                   botSettings,
