@@ -1,5 +1,5 @@
-const fetchAllWaxData2 = require('../fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
+import fetchAllWaxData2 from '../fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const fetchVoter = async ({
     accountName,
@@ -29,4 +29,4 @@ const fetchVoter = async ({
     return voters[0];
 };
 
-module.exports = fetchVoter;
+export default fetchVoter;

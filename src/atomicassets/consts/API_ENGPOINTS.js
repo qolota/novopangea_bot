@@ -1,4 +1,4 @@
-module.exports = {
+const API_ENDPOINTS = {
     ASSETS: 'ASSETS',
     ACCOUNTS: 'ACCOUNTS',
     SALES: 'SALES',
@@ -7,3 +7,5 @@ module.exports = {
     LOGS: 'LOGS',
     TRANSFERS: 'TRANSFERS',
 };
+
+export default API_ENDPOINTS;

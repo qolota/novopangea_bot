@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const sumResources = ({
     resources,
@@ -12,4 +12,4 @@ const sumResources = ({
         .value();
 };
 
-module.exports = sumResources;
+export default sumResources;

@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const mapResource = require('./mapResource');
+import _ from 'lodash';
+import mapResource from './mapResource';
 
 const mapResources = (resources) => {
     return _(resources)
@@ -7,4 +7,4 @@ const mapResources = (resources) => {
         .value();
 };
 
-module.exports = mapResources;
+export default mapResources;

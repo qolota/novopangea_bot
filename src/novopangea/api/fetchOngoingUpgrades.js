@@ -1,7 +1,7 @@
-const _ = require('lodash');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchUpgradeConfigs = require('./fetchUpgradeConfigs');
+import _ from 'lodash';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchUpgradeConfigs from './fetchUpgradeConfigs';
 
 const fetchOngoingUpgrades = async ({
     cache = {},
@@ -37,4 +37,4 @@ const fetchOngoingUpgrades = async ({
     return upgrades;
 };
 
-module.exports = fetchOngoingUpgrades;
+export default fetchOngoingUpgrades;

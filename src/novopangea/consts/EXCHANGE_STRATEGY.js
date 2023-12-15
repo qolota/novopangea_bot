@@ -1,4 +1,4 @@
-const RESOURCES = require('./RESOURSES');
+import RESOURCES from './RESOURSES';
 
 const EXCHANGE_STRATEGY = {
     [RESOURCES.OBSD]: RESOURCES.NOVO,
@@ -7,4 +7,4 @@ const EXCHANGE_STRATEGY = {
     [RESOURCES.NOVOF]: RESOURCES.OBSD,
 };
 
-module.exports = EXCHANGE_STRATEGY;
+export default EXCHANGE_STRATEGY;

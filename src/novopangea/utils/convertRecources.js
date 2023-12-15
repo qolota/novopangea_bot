@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const convertRecources = ({
     exchange,
@@ -14,4 +14,4 @@ const convertRecources = ({
     });
 };
 
-module.exports = convertRecources;
+export default convertRecources;

@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const fetchMarkets = require('../../alcor/api/fetchMarkets');
+import _ from 'lodash';
+import fetchMarkets from '../../alcor/api/fetchMarkets';
 
 const fetchNovoPrice = async () => {
     const markets = await fetchMarkets();
@@ -28,4 +28,4 @@ const fetchNovoPrice = async () => {
     return symbol.price;
 };
 
-module.exports = fetchNovoPrice;
+export default fetchNovoPrice;

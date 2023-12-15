@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const printBalances = ({
     balances,
@@ -6,4 +6,4 @@ const printBalances = ({
     return balances.map(c => `${c.symbol}:${_.round(c.value, 4)}`).join(', ');
 }
 
-module.exports = printBalances;
+export default printBalances;

@@ -1,12 +1,13 @@
-const _ = require('lodash');
-const fetchBuildings = require("./fetchBuildings");
-const SHIFT_TIME_MS = 12 * 60 * 60 * 1000;
-const equalizeResources = require('../utils/equalizeResources');
-const fetchWorkerConfigs = require('./fetchWorkerConfigs');
-const sumResources = require('../utils/sumResources');
-const multiplyResources = require('../utils/multiplyResources');
-const BUILDINGS_TO_TOWNHALL = require('../consts/BUILDINGS_TO_TOWNHALL');
+import _ from 'lodash';
+import fetchBuildings from "./fetchBuildings";
+import equalizeResources from '../utils/equalizeResources';
+import fetchWorkerConfigs from './fetchWorkerConfigs';
+import sumResources from '../utils/sumResources';
+import multiplyResources from '../utils/multiplyResources';
+import BUILDINGS_TO_TOWNHALL from '../consts/BUILDINGS_TO_TOWNHALL';
+
 const REST_BUILDINGS = ['rest', 'creature'];
+const SHIFT_TIME_MS = 12 * 60 * 60 * 1000;
 
 const fetchAccountBuildings = async ({
     accountName,
@@ -232,4 +233,4 @@ const fetchAccountBuildings = async ({
     };
 };
 
-module.exports = fetchAccountBuildings;
+export default fetchAccountBuildings;

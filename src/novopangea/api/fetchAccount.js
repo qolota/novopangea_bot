@@ -1,10 +1,10 @@
-const _ = require('lodash');
-const fetchWaxData = require('../../core/fetchWaxData');
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const convertAllCosts = require('../utils/convertAllCosts');
-const CONTRACTS = require('../consts/CONTRACTS');
-const mapResources = require('../utils/mapResources');
+import _ from 'lodash';
+import fetchWaxData from '../../core/fetchWaxData';
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import convertAllCosts from '../utils/convertAllCosts';
+import CONTRACTS from '../consts/CONTRACTS';
+import mapResources from '../utils/mapResources';
 
 const fetchAccount = async ({
     accountName,
@@ -42,4 +42,4 @@ const fetchAccount = async ({
     return account;
 };
 
-module.exports = fetchAccount;
+export default fetchAccount;

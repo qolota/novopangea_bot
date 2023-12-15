@@ -1,11 +1,11 @@
-const _ = require('lodash');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const mapResources = require('../utils/mapResources');
-const convertAllCosts = require('../utils/convertAllCosts');
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const mapResource = require('../utils/mapResource');
+import _ from 'lodash';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import mapResources from '../utils/mapResources';
+import convertAllCosts from '../utils/convertAllCosts';
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import mapResource from '../utils/mapResource';
 
 const fetchAccounts = async ({
     cache = {}
@@ -76,4 +76,4 @@ const fetchAccounts = async ({
     return accounts;
 };
 
-module.exports = fetchAccounts;
+export default fetchAccounts;

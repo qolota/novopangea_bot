@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const sumResources = require('./sumResources');
-const findResource = require('./findResource');
+import _ from 'lodash';
+import sumResources from './sumResources';
+import findResource from './findResource';
 
 const equalizeResources = ({
     targetResources,
@@ -42,4 +42,4 @@ const equalizeResources = ({
         .value();
 };
 
-module.exports = equalizeResources;
+export default equalizeResources;

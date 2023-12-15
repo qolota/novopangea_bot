@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const fetchWaxData2 = require('./fetchWaxData2');
+import _ from 'lodash';
+import fetchWaxData2 from './fetchWaxData2';
 
 const DEFAULT_LIMIT = 1000;
 
@@ -73,7 +73,7 @@ const fetchAllWaxData2 = async ({
     }
 };
 
-module.exports = fetchAllWaxData2;
+export default fetchAllWaxData2;
 
 
 

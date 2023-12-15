@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const CONTRACTS = require('../consts/CONTRACTS');
+import _ from 'lodash';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const feedWorkers = ({
     accountName,
@@ -34,4 +34,4 @@ const feedWorkers = ({
     };
 };
 
-module.exports = feedWorkers;
+export default feedWorkers;

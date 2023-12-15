@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const exchangeTokens = ({
     accountName,
@@ -23,4 +23,4 @@ const exchangeTokens = ({
     };
 };
 
-module.exports = exchangeTokens;
+export default exchangeTokens;

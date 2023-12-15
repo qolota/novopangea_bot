@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const setLandRent = ({
     accountName,
@@ -25,4 +25,4 @@ const setLandRent = ({
     };
 };
 
-module.exports = setLandRent;
+export default setLandRent;

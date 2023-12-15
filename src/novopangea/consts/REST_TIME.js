@@ -22,4 +22,4 @@ const REST_TIME = {
     ],
 };
 
-module.exports = REST_TIME;
+export default REST_TIME;

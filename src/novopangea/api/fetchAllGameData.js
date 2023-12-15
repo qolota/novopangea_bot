@@ -1,21 +1,21 @@
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const fetchAccountBuildings = require('./fetchAccountBuildings');
-const fetchAccountWorkers = require('./fetchAccountWorkers');
-const fetchBuildings = require('./fetchBuildings');
-const fetchWorkerConfigs = require('./fetchWorkerConfigs');
-const fetchDistricts = require('./fetchDistricts');
-const fetchRealms = require('./fetchRealms');
-const fetchBuildingConfigs = require('./fetchBuildingConfigs');
-const fetchLands = require('./fetchLands');
-const fetchLandConfigs = require('./fetchLandConfigs');
-const fetchSpeedupConfigs = require('./fetchSpeedupConfigs');
-const fetchAccountTransfers = require('./fetchAccountTransfers');
-const fetchAccounts = require('./fetchAccounts');
-const fetchWorkers = require('./fetchWorkers');
-const fetchAccountLands = require('./fetchAccountLands');
-const fetchOngoingUpgrades = require('./fetchOngoingUpgrades');
-const fetchUpgradeConfigs = require('./fetchUpgradeConfigs');
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import fetchAccountBuildings from './fetchAccountBuildings';
+import fetchAccountWorkers from './fetchAccountWorkers';
+import fetchBuildings from './fetchBuildings';
+import fetchWorkerConfigs from './fetchWorkerConfigs';
+import fetchDistricts from './fetchDistricts';
+import fetchRealms from './fetchRealms';
+import fetchBuildingConfigs from './fetchBuildingConfigs';
+import fetchLands from './fetchLands';
+import fetchLandConfigs from './fetchLandConfigs';
+import fetchSpeedupConfigs from './fetchSpeedupConfigs';
+import fetchAccountTransfers from './fetchAccountTransfers';
+import fetchAccounts from './fetchAccounts';
+import fetchWorkers from './fetchWorkers';
+import fetchAccountLands from './fetchAccountLands';
+import fetchOngoingUpgrades from './fetchOngoingUpgrades';
+import fetchUpgradeConfigs from './fetchUpgradeConfigs';
 
 const fetchAllGameData = async ({
     accountName,
@@ -170,4 +170,4 @@ const fetchAllGameData = async ({
     };
 };
 
-module.exports = fetchAllGameData;
+export default fetchAllGameData;

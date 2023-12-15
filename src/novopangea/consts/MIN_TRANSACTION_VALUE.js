@@ -1,4 +1,4 @@
-const RESOURCES = require('./RESOURSES');
+import RESOURCES from './RESOURSES';
 
 const MIN_TRANSACTION_VALUE = {
     [RESOURCES.NOVOE]: 65,
@@ -8,4 +8,4 @@ const MIN_TRANSACTION_VALUE = {
     [RESOURCES.NOVO]: 3,
 };
 
-module.exports = MIN_TRANSACTION_VALUE;
+export default MIN_TRANSACTION_VALUE;

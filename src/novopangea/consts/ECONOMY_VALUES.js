@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const ECONOMY_VALUES = {
+import _ from 'lodash';
+export const ECONOMY_VALUES = {
     // set this value if you'd like to ugrage workers to a particular level
     UPGRADE_WORKERS_TO_LVL: 4,
     // maximum external land price bot will agree to
@@ -57,16 +57,10 @@ const ECONOMY_VALUES = {
 
 let currentEconomyValues = _.cloneDeep(ECONOMY_VALUES);
 
-const setEconomyValues = ({
+export const setEconomyValues = ({
     economyValues,
 }) => {
     currentEconomyValues = _.cloneDeep(economyValues);
 };
 
-const getEconomyValues = () => _.cloneDeep(currentEconomyValues);
-
-module.exports = {
-    setEconomyValues,
-    getEconomyValues,
-    ECONOMY_VALUES,
-};
+export const getEconomyValues = () => _.cloneDeep(currentEconomyValues);

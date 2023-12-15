@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const wakeupWorkers = ({
     accountName,
@@ -19,4 +19,4 @@ const wakeupWorkers = ({
     };
 };
 
-module.exports = wakeupWorkers;
+export default wakeupWorkers;

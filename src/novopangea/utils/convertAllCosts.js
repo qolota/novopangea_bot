@@ -1,7 +1,7 @@
-const _ = require('lodash');
-const convertRecources = require('./convertRecources');
-const RESOURCES = require('../consts/RESOURSES');
-const mapResources = require('./mapResources');
+import _ from 'lodash';
+import convertRecources from './convertRecources';
+import RESOURCES from '../consts/RESOURSES';
+import mapResources from './mapResources';
 
 const convertAllCosts = ({
     costs,
@@ -38,4 +38,4 @@ const convertAllCosts = ({
     };
 };
 
-module.exports = convertAllCosts;
+export default convertAllCosts;

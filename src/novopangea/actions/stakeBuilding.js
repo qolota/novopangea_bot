@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const stakeBuilding = ({
     accountName,
@@ -25,4 +25,4 @@ const stakeBuilding = ({
     };
 };
 
-module.exports = stakeBuilding;
+export default stakeBuilding;

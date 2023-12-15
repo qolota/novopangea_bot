@@ -1,5 +1,5 @@
-const extractDomainWithProtocol = require('./extractDomainWithProtocol');
-const sleep = require('./sleep');
+import extractDomainWithProtocol from './extractDomainWithProtocol';
+import sleep from './sleep';
 
 const postponeRequestTime = {};
 
@@ -63,4 +63,4 @@ const fetchWithAttempts = async ({
   }
 };
 
-module.exports = fetchWithAttempts;
+export default fetchWithAttempts;

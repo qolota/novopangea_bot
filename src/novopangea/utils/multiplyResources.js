@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const multiplyResources = ({
     resources,
@@ -12,4 +12,4 @@ const multiplyResources = ({
         .value();
 };
 
-module.exports = multiplyResources;
+export default multiplyResources;

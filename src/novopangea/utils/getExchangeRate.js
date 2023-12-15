@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const getExchangeRate = ({
     exchange,
@@ -20,4 +20,4 @@ const getExchangeRate = ({
         .value();
 };
 
-module.exports = getExchangeRate;
+export default getExchangeRate;

@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const feedOneWorker = ({
     accountName,
@@ -32,4 +32,4 @@ const feedOneWorker = ({
     };
 };
 
-module.exports = feedOneWorker;
+export default feedOneWorker;

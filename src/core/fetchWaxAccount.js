@@ -1,5 +1,5 @@
-const {getCache, writeCache} = require('./cache');
-const {WAX_BLOCKS_PROVIDER} = require('../configs/ENDPOINTS');
+import {getCache, writeCache} from './cache';
+import {WAX_BLOCKS_PROVIDER} from '../configs/ENDPOINTS';
 
 const CACHE_WAX_ACCOUNT_KEY = 'wax_account';
 const CACHE_WAX_ACCOUNT_DURATION = 10 * 1000;

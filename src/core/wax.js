@@ -1,6 +1,6 @@
 import * as waxjs from "@waxio/waxjs/dist";
 import log from '../utils/log';
-const {WAX_BLOCKS_PROVIDER} = require('../configs/ENDPOINTS');
+import {WAX_BLOCKS_PROVIDER} from '../configs/ENDPOINTS';
 
 export const wax = new waxjs.WaxJS({
   rpcEndpoint: WAX_BLOCKS_PROVIDER,

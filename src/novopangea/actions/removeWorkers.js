@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const CONTRACTS = require('../consts/CONTRACTS');
+import _ from 'lodash';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const removeWorkers = ({
     accountName,
@@ -21,4 +21,4 @@ const removeWorkers = ({
     };
 };
 
-module.exports = removeWorkers;
+export default removeWorkers;

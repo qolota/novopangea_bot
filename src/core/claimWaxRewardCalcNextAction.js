@@ -1,7 +1,7 @@
-const fetchProxies = require('./api/fetchProxies');
-const fetchVoter = require('./api/fetchVoter');
-const claimWax = require('./actions/claimWax');
-const voteProdcuer = require('./actions/voteProducer');
+import fetchProxies from './api/fetchProxies';
+import fetchVoter from './api/fetchVoter';
+import claimWax from './actions/claimWax';
+import voteProdcuer from './actions/voteProducer';
 
 const claimWaxRewardCalcNextAction = async ({
     accountName,

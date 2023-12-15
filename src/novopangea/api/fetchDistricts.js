@@ -1,8 +1,8 @@
-const _ = require('lodash');
-const fetchRealms = require('./fetchRealms');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchTownhallAccounts = require('./fetchTownhallAccounts');
+import _ from 'lodash';
+import fetchRealms from './fetchRealms';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchTownhallAccounts from './fetchTownhallAccounts';
 
 const fetchDistricts = async ({
     cache = {},
@@ -31,4 +31,4 @@ const fetchDistricts = async ({
     return districts;
 };
 
-module.exports = fetchDistricts;
+export default fetchDistricts;

@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const fetchDEXs = require('./fetchDEXs');
-const fetchSwapPools = require('./fetchSwapPools');
+import _ from 'lodash';
+import fetchDEXs from './fetchDEXs';
+import fetchSwapPools from './fetchSwapPools';
 
 const fetchMarkets = async () => {
   const dexs = await fetchDEXs();
@@ -24,4 +24,4 @@ const fetchMarkets = async () => {
   return markets;
 };
 
-module.exports = fetchMarkets;
+export default fetchMarkets;

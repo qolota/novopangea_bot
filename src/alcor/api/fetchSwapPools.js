@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchAllWaxData = require('../../core/fetchAllWaxData');
+import _ from 'lodash';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchAllWaxData from '../../core/fetchAllWaxData';
 
 const convertPool = (pool) => {
     const [quantity, symbol] = pool.quantity.split(' ');
@@ -62,4 +62,4 @@ const fetchSwapPools = async () => {
     return groupedPools;
   };
 
-module.exports = fetchSwapPools;
+export default fetchSwapPools;

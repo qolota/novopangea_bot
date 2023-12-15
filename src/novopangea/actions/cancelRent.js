@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const CONTRACTS = require('../consts/CONTRACTS');
+import _ from 'lodash';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const cancelRent = ({
     accountName,
@@ -21,4 +21,4 @@ const cancelRent = ({
     };
 };
 
-module.exports = cancelRent;
+export default cancelRent;

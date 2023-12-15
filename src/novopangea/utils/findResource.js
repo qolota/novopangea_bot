@@ -5,4 +5,4 @@ const findResource = ({
     return resources.find(b => b.symbol === symbol);
 };
 
-module.exports = findResource;
+export default findResource;

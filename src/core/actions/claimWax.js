@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const claimWax = ({
     accountName,
@@ -18,4 +18,4 @@ const claimWax = ({
   };
 };
 
-module.exports = claimWax;
+export default claimWax;

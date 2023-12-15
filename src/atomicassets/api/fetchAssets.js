@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const fetchAtomichub = require('../utils/fetchAtomichub');
-const API_ENDPOINTS = require('../consts/API_ENGPOINTS');
+import _ from 'lodash';
+import fetchAtomichub from '../utils/fetchAtomichub';
+import API_ENDPOINTS from '../consts/API_ENGPOINTS';
 
 const ASSETS_LIMIT = 100;
 
@@ -55,4 +55,4 @@ const fetchAssets = async ({
   return assets;
 };
 
-module.exports = fetchAssets;
+export default fetchAssets;

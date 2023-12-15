@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const fetchAllWaxData = require('../../core/fetchAllWaxData');
-const CONTRACTS = require('../consts/CONTRACTS');
+import _ from 'lodash';
+import fetchAllWaxData from '../../core/fetchAllWaxData';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const convertDex = (dex, min) => {
     const [precision, symbol] = dex.sym.split(',');
@@ -54,4 +54,4 @@ const fetchDEXs = async () => {
    return groupedDexs;
 };
 
-module.exports = fetchDEXs;
+export default fetchDEXs;

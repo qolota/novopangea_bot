@@ -1,11 +1,11 @@
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchDistricts = require('./fetchDistricts');
-const convertAllCosts = require('../utils/convertAllCosts');
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const fetchLandConfigs = require('./fetchLandConfigs');
-const fetchRealms = require('./fetchRealms');
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchDistricts from './fetchDistricts';
+import convertAllCosts from '../utils/convertAllCosts';
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import fetchLandConfigs from './fetchLandConfigs';
+import fetchRealms from './fetchRealms';
 
 const fetchLands = async ({
     cache = {},
@@ -61,4 +61,4 @@ const fetchLands = async ({
     return lands;
 };
 
-module.exports = fetchLands;
+export default fetchLands;

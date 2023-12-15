@@ -14,4 +14,4 @@ function extractDomainWithProtocol(url) {
     return domain;
 }
 
-module.exports = extractDomainWithProtocol;
+export default extractDomainWithProtocol;

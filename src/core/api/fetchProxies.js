@@ -9,4 +9,4 @@ const fetchProxies = async () => {
     return [];
 };
 
-module.exports = fetchProxies;
+export default fetchProxies;

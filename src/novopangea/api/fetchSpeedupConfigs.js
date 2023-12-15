@@ -1,5 +1,5 @@
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const fetchSpeedupConfigs = async () => {
     const speedupConfigs = await fetchAllWaxData2({
@@ -17,4 +17,4 @@ const fetchSpeedupConfigs = async () => {
     return speedupConfigs;
 };
 
-module.exports = fetchSpeedupConfigs;
+export default fetchSpeedupConfigs;

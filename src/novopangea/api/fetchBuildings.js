@@ -1,18 +1,18 @@
-const _ = require('lodash');
-const fetchDistricts = require('./fetchDistricts');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchBuildingConfigs = require('./fetchBuildingConfigs');
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const convertAllCosts = require('../utils/convertAllCosts');
-const REST_TIME = require('../consts/REST_TIME');
-const fetchLands = require('./fetchLands');
-const fetchLandConfigs = require('./fetchLandConfigs');
-const fetchWorkerConfigs = require('./fetchWorkerConfigs');
-const fetchAccounts = require('./fetchAccounts');
-const ONE_DAY = 60 * 60 * 24;
+import _ from 'lodash';
+import fetchDistricts from './fetchDistricts';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchBuildingConfigs from './fetchBuildingConfigs';
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import convertAllCosts from '../utils/convertAllCosts';
+import REST_TIME from '../consts/REST_TIME';
+import fetchLands from './fetchLands';
+import fetchLandConfigs from './fetchLandConfigs';
+import fetchWorkerConfigs from './fetchWorkerConfigs';
+import fetchAccounts from './fetchAccounts';
 
+const ONE_DAY = 60 * 60 * 24;
 const AVG_WAGE_OBSD = 1.15;
 
 const fetchBuildings = async ({
@@ -134,4 +134,4 @@ const fetchBuildings = async ({
     return buildings;
 };
 
-module.exports = fetchBuildings;
+export default fetchBuildings;

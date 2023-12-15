@@ -1,19 +1,14 @@
-const _ = require('lodash');
-const findResource = require('./findResource');
-const RESOURCES = require('../consts/RESOURSES');
-const sumResources = require('./sumResources');
-const equalizeResources = require('./equalizeResources');
-const exchangeTokens = require('../actions/exchangeTokens');
-const validateResourceLimit = require('./validateResourceLimit');
-const printBalances = require('./printBalances');
+import MIN_TRANSACTION_VALUE from '../consts/MIN_TRANSACTION_VALUE';
 
-const MIN_TRANSACTION_VALUE = {
-    [RESOURCES.NOVOE]: 65,
-    [RESOURCES.NOVOM]: 60,
-    [RESOURCES.NOVOF]: 55,
-    [RESOURCES.OBSD]: 3,
-    [RESOURCES.NOVO]: 1,
-};
+import _ from 'lodash';
+import findResource from './findResource';
+import RESOURCES from '../consts/RESOURSES';
+import sumResources from './sumResources';
+import equalizeResources from './equalizeResources';
+import exchangeTokens from '../actions/exchangeTokens';
+import validateResourceLimit from './validateResourceLimit';
+import printBalances from './printBalances';
+
 
 // 1. transfer all resources to OBSD
 // 2. transfer OBSD to NOVO
@@ -214,4 +209,4 @@ const exchangeResources = ({
     };
 };
 
-module.exports = exchangeResources;
+export default exchangeResources;

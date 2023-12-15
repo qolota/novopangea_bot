@@ -1,5 +1,5 @@
-const fetchWithAttempts = require('../utils/fetchWithAttempts');
-const {WAX_BLOCKS_PROVIDER} = require('../configs/ENDPOINTS');
+import fetchWithAttempts from '../utils/fetchWithAttempts';
+import {WAX_BLOCKS_PROVIDER} from '../configs/ENDPOINTS';
 
 const fetchWaxData2 = async ({
   params,
@@ -34,4 +34,4 @@ const fetchWaxData2 = async ({
     };
 }
 
-module.exports = fetchWaxData2;
+export default fetchWaxData2;

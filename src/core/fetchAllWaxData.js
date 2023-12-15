@@ -1,4 +1,4 @@
-const fetchWaxData = require('./fetchWaxData');
+import fetchWaxData from './fetchWaxData';
 
 const DEFAULT_LIMIT = 1000;
 const START_ID = 1;
@@ -50,4 +50,4 @@ const fetchAllWaxData = async ({
     }
 };
 
-module.exports = fetchAllWaxData;
+export default fetchAllWaxData;

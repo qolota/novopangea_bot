@@ -1,6 +1,5 @@
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
 
 const fetchExchange = async () => {
     const exchange = await fetchAllWaxData2({
@@ -21,4 +20,4 @@ const fetchExchange = async () => {
     return exchange;
 };
 
-module.exports = fetchExchange;
+export default fetchExchange;

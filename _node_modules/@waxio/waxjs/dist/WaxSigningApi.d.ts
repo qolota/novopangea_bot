@@ -1,0 +1,34 @@
+import { JsonRpc } from "eosjs";
+import { Transaction } from "eosjs/dist/eosjs-api-interfaces";
+import { Protocol } from "puppeteer";
+import { ILoginResponse, ISigningResponse } from "./interfaces";
+import integer = Protocol.integer;
+export declare class WaxSigningApi {
+    readonly waxSigningURL: string;
+    readonly waxAutoSigningURL: string;
+    readonly rpc: JsonRpc;
+    readonly metricURL?: string;
+    readonly returnTempAccount?: boolean;
+    private waxEventSource;
+    private user?;
+    private signingWindow?;
+    private whitelistedContracts?;
+    private nonce;
+    constructor(waxSigningURL: string, waxAutoSigningURL: string, rpc: JsonRpc, metricURL?: string, returnTempAccount?: boolean);
+    logout(): void;
+    login(nonce?: string): Promise<ILoginResponse>;
+    tryAutologin(): Promise<boolean>;
+    prepareTransaction(transaction: Transaction): Promise<void>;
+    metricLog(name: string, value?: number, tags?: any[]): Promise<void>;
+    signing(transaction: Transaction, serializedTransaction: Uint8Array, noModify?: boolean, feeFallback?: boolean): Promise<ISigningResponse>;
+    proofWindow(nonce: string, type: integer, description: string | null): Promise<any>;
+    private loginViaWindow;
+    private loginViaEndpoint;
+    private signViaEndpoint;
+    private receiveVerfication;
+    private signViaWindow;
+    private receiveLogin;
+    private receiveSignatures;
+    private canAutoSign;
+    private isWhitelisted;
+}

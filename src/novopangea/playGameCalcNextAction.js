@@ -1,28 +1,28 @@
-const _ = require('lodash');
-const setBuildWage = require('./actions/setBuildWage');
-const wakeupWorkers = require('./actions/wakeupWorkers');
-const multiplyResources = require('./utils/multiplyResources');
-const sumResources = require('./utils/sumResources');
-const exchangeTokens = require('./actions/exchangeTokens');
-const getExchangeRate = require('./utils/getExchangeRate');
-const RESOURCES = require('./consts/RESOURSES');
-const MIN_TRANSACTION_VALUE = require('./consts/MIN_TRANSACTION_VALUE');
-const EXCHANGE_STRATEGY = require('./consts/EXCHANGE_STRATEGY');
-const findResource = require('./utils/findResource');
-const startShift = require('./actions/startShift');
-const { default: log} = require('../utils/log');
-const renewRent = require('./actions/renewRent');
-const feedOneWorker = require('./actions/feedOneWorker');
-const stakeBuilding = require('./actions/stakeBuilding');
-const fetchAllGameData = require('./api/fetchAllGameData');
-const removeBuilding = require('./actions/removeBuilding');
-const setLandRent = require('./actions/setLandRent');
-const startUpgrade = require('./actions/startUpgrade');
-const finishUpgrade = require('./actions/finishUpgrade');
-const exchangeResources = require('./utils/exchangeResources');
-const {
+import _ from 'lodash';
+import setBuildWage from './actions/setBuildWage';
+import wakeupWorkers from './actions/wakeupWorkers';
+import multiplyResources from './utils/multiplyResources';
+import sumResources from './utils/sumResources';
+import exchangeTokens from './actions/exchangeTokens';
+import getExchangeRate from './utils/getExchangeRate';
+import RESOURCES from './consts/RESOURSES';
+import EXCHANGE_STRATEGY from './consts/EXCHANGE_STRATEGY';
+import MIN_TRANSACTION_VALUE from './consts/MIN_TRANSACTION_VALUE';
+import findResource from './utils/findResource';
+import startShift from './actions/startShift';
+import log from '../utils/log';
+import renewRent from './actions/renewRent';
+import feedOneWorker from './actions/feedOneWorker';
+import stakeBuilding from './actions/stakeBuilding';
+import fetchAllGameData from './api/fetchAllGameData';
+import removeBuilding from './actions/removeBuilding';
+import setLandRent from './actions/setLandRent';
+import startUpgrade from './actions/startUpgrade';
+import finishUpgrade from './actions/finishUpgrade';
+import exchangeResources from './utils/exchangeResources';
+import {
     getEconomyValues,
-} = require('./consts/ECONOMY_VALUES');
+} from './consts/ECONOMY_VALUES';
 
 const findBuildings = ({
     buildings,

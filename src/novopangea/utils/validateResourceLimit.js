@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const findResource = require('./findResource');
+import _ from 'lodash';
+import findResource from './findResource';
 
 const validateResourceLimit = ({
     resources,
@@ -20,4 +20,4 @@ const validateResourceLimit = ({
         });
 };
 
-module.exports = validateResourceLimit;
+export default validateResourceLimit;

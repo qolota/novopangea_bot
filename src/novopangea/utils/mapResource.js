@@ -3,4 +3,4 @@ const mapResource = (resource) => ({
     symbol: resource.split(' ')[1],
 });
 
-module.exports = mapResource;
+export default mapResource;

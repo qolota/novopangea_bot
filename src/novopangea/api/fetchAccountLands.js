@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const fetchLands = require("./fetchLands");
+import _ from 'lodash';
+import fetchLands from "./fetchLands";
 
 const fetchAccountLands = async ({
     accountName,
@@ -71,4 +71,4 @@ const fetchAccountLands = async ({
         };
 };
 
-module.exports = fetchAccountLands;
+export default fetchAccountLands;

@@ -27,7 +27,7 @@ function App() {
     let allBotSettings = localStorage.getItem('allBotSettings');
     if (allBotSettings == null) {
       allBotSettings = JSON.stringify(getInitParams());
-      localStorage.setItem('allBotSettings', JSON.stringify(allBotSettings));
+      localStorage.setItem('allBotSettings', allBotSettings);
     }
 
     setEconomyValues({

@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const removeBuilding = ({
     accountName,
@@ -20,4 +20,4 @@ const removeBuilding = ({
     };
 };
 
-module.exports = removeBuilding;
+export default removeBuilding;

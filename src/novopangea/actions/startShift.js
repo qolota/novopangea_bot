@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const startShift = ({
     accountName,
@@ -25,4 +25,4 @@ const startShift = ({
     };
 };
 
-module.exports = startShift;
+export default startShift;

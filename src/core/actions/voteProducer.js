@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const voteProducer = ({
     accountName,
@@ -21,4 +21,4 @@ const voteProducer = ({
   };
 };
 
-module.exports = voteProducer;
+export default voteProducer;

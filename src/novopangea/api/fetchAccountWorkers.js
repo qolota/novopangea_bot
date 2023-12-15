@@ -1,15 +1,15 @@
-const _ = require('lodash');
-const fetchBuildings = require('./fetchBuildings');
-const fetchDistricts = require('./fetchDistricts');
-const fetchWorkerConfigs = require('./fetchWorkerConfigs');
-const fetchAccountTransfers = require('./fetchAccountTransfers');
-const fetchBuildingConfigs = require('./fetchBuildingConfigs');
-const fetchSpeedupConfigs = require('./fetchSpeedupConfigs');
-const fetchWorkers = require('./fetchWorkers');
-const fetchOngoingUpgrades = require('./fetchOngoingUpgrades');
-const {
+import _ from 'lodash';
+import fetchBuildings from './fetchBuildings';
+import fetchDistricts from './fetchDistricts';
+import fetchWorkerConfigs from './fetchWorkerConfigs';
+import fetchAccountTransfers from './fetchAccountTransfers';
+import fetchBuildingConfigs from './fetchBuildingConfigs';
+import fetchSpeedupConfigs from './fetchSpeedupConfigs';
+import fetchWorkers from './fetchWorkers';
+import fetchOngoingUpgrades from './fetchOngoingUpgrades';
+import {
     getEconomyValues,
-} = require('../consts/ECONOMY_VALUES');
+} from '../consts/ECONOMY_VALUES';
 
 const fetchAccountWorkers = async ({
     accountName,
@@ -109,4 +109,4 @@ const fetchAccountWorkers = async ({
     return sets;
 };
 
-module.exports = fetchAccountWorkers;
+export default fetchAccountWorkers;

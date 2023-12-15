@@ -1,7 +1,7 @@
-const qs = require('query-string');
-const _ = require('lodash');
-const sleep = require('../../utils/sleep');
-const API_ENDPOINTS = require('../consts/API_ENGPOINTS');
+import qs from 'query-string';
+import _ from 'lodash';
+import sleep from '../../utils/sleep';
+import API_ENDPOINTS from '../consts/API_ENGPOINTS';
 
 const URLS = {
     [API_ENDPOINTS.ASSETS]: 'https://wax.api.atomicassets.io/atomicmarket/v1/assets/',
@@ -56,4 +56,4 @@ const fetchAtomichub = async ({
     }
 };
 
-module.exports = fetchAtomichub;
+export default fetchAtomichub;

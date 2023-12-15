@@ -1,10 +1,10 @@
-const _ = require('lodash');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchAssets = require('../../atomicassets/api/fetchAssets');
-const fetchWorkerConfigs = require('./fetchWorkerConfigs');
-const fetchBuildingConfigs = require('./fetchBuildingConfigs');
-const fetchSpeedupConfigs = require('./fetchSpeedupConfigs');
+import _ from 'lodash';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchAssets from '../../atomicassets/api/fetchAssets';
+import fetchWorkerConfigs from './fetchWorkerConfigs';
+import fetchBuildingConfigs from './fetchBuildingConfigs';
+import fetchSpeedupConfigs from './fetchSpeedupConfigs';
 
 const fetchAccountTransfers = async ({
     accountName,
@@ -108,4 +108,4 @@ const fetchAccountTransfers = async ({
     return assets;
 };
 
-module.exports = fetchAccountTransfers;
+export default fetchAccountTransfers;

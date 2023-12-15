@@ -6,4 +6,4 @@ const BUILDINGS_TO_TOWNHALL =  {
     '5': 3,
 };
 
-module.exports = BUILDINGS_TO_TOWNHALL;
+export default BUILDINGS_TO_TOWNHALL;

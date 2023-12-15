@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const setBuildWage = ({
     accountName,
@@ -25,4 +25,4 @@ const setBuildWage = ({
     };
 };
 
-module.exports = setBuildWage;
+export default setBuildWage;

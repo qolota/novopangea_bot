@@ -1,11 +1,11 @@
-const _ = require('lodash');
-const fetchAllWaxData2 = require('../../core/fetchAllWaxData2');
-const CONTRACTS = require('../consts/CONTRACTS');
-const fetchExchange = require('./fetchExchange');
-const fetchNovoPrice = require('./fetchNovoPrice');
-const fetchRealms = require('./fetchRealms');
-const convertAllCosts = require('../utils/convertAllCosts');
-const SCHEMAS = require('../consts/SCHEMAS');
+import _ from 'lodash';
+import fetchAllWaxData2 from '../../core/fetchAllWaxData2';
+import CONTRACTS from '../consts/CONTRACTS';
+import fetchExchange from './fetchExchange';
+import fetchNovoPrice from './fetchNovoPrice';
+import fetchRealms from './fetchRealms';
+import convertAllCosts from '../utils/convertAllCosts';
+import SCHEMAS from '../consts/SCHEMAS';
 
 const fetchUpgradeConfigs = async ({
     cache = {}
@@ -80,4 +80,4 @@ const fetchUpgradeConfigs = async ({
     return configs;
 };
 
-module.exports = fetchUpgradeConfigs;
+export default fetchUpgradeConfigs;

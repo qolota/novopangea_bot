@@ -1,4 +1,4 @@
-const CONTRACTS = require('../consts/CONTRACTS');
+import CONTRACTS from '../consts/CONTRACTS';
 
 const finishUpgrade = ({
     accountName,
@@ -19,4 +19,4 @@ const finishUpgrade = ({
     };
 };
 
-module.exports = finishUpgrade;
+export default finishUpgrade;
