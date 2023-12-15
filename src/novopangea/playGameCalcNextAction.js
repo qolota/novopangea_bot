@@ -398,7 +398,7 @@ const _getStartMixedShiftAction = ({
     return {
         action: actionName,
         isMultipleTransactions: true,
-        actions: _.chunk(actions, 16),
+        actions: _.chunk(actions, 12),
     };
 };
 
@@ -657,7 +657,7 @@ const _getStartMixedRestAction = ({
     return {
         action: actionName,
         isMultipleTransactions: true,
-        actions: _.chunk(actions, 16),
+        actions: _.chunk(actions, 12),
     };
 };
 
@@ -1063,7 +1063,7 @@ const getRentMixedLandsAction = ({
     return {
         action: 'rent_mixed_lands',
         isMultipleTransactions: true,
-        actions: _.chunk(actions, 16),
+        actions: _.chunk(actions, 12),
     };
 };
 
@@ -1204,7 +1204,7 @@ const getStartWorkerUpgradesAction = ({
     return {
         action: 'upgrade_workers',
         isMultipleTransactions: true,
-        actions: _.chunk(actions, 16),
+        actions: _.chunk(actions, 12),
     };
 };
 
@@ -1287,6 +1287,7 @@ const playGameCalcNextAction = async ({
     if (accountBuildings.ownBuildingsWithoutWageSet.length > 0) {
         return {
             action: 'set_building_wage',
+            isMultipleTransactions: true,
             actions: _(accountBuildings.ownBuildingsWithoutWageSet)
                 .map(b => setBuildWage({
                     accountName,
@@ -1295,6 +1296,7 @@ const playGameCalcNextAction = async ({
                     isOnlyOwnWorkersAllowed: true,
                     minWorkerLevel: 1,
                 }))
+                .chunk(12)
                 .value(),
         };
     }
