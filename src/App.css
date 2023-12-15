@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.bot-settings {
+  margin: 12px;
+  padding: 16px;
+  border: 1px solid #282c34;
+}

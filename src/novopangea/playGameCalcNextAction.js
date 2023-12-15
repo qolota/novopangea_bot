@@ -14,17 +14,14 @@ const { default: log} = require('../utils/log');
 const renewRent = require('./actions/renewRent');
 const feedOneWorker = require('./actions/feedOneWorker');
 const stakeBuilding = require('./actions/stakeBuilding');
-const fetchAllGameDat = require('./api/fetchAllGameData');
+const fetchAllGameData = require('./api/fetchAllGameData');
 const removeBuilding = require('./actions/removeBuilding');
 const setLandRent = require('./actions/setLandRent');
 const startUpgrade = require('./actions/startUpgrade');
 const finishUpgrade = require('./actions/finishUpgrade');
 const exchangeResources = require('./utils/exchangeResources');
 const {
-    MAX_LAND_RENT_PRICE_OBSD,
-    MIN_RENT_BUILDING_LEVELS,
-    JOB_MIN_PROFITS_OBSD,
-    REST_MAX_COST_OBSD,
+    getEconomyValues,
 } = require('./consts/ECONOMY_VALUES');
 
 const findBuildings = ({
@@ -301,6 +298,7 @@ const _prepShiftBuildings = ({
     buildings,
     level,
 }) => {
+    const economyValues = getEconomyValues();
     return _(buildings)
         .map(building => ({
             id: building.id,
@@ -314,7 +312,7 @@ const _prepShiftBuildings = ({
             contractWage: building.contractWage,
             shiftYield: building.config.shiftYield,
         }))
-        .filter(building => building.jobProfitObsd > JOB_MIN_PROFITS_OBSD[level - 1])
+        .filter(building => building.jobProfitObsd > economyValues.JOB_MIN_PROFITS_OBSD[level - 1])
         .sortBy(building => building.jobProfitObsd)
         .value();
 };
@@ -668,6 +666,7 @@ const _prepRestBuildings = ({
     buildings,
     level,
 }) => {
+    const economyValues = getEconomyValues();
     return _(buildings)
         .map(building => ({
             id: building.id,
@@ -681,7 +680,7 @@ const _prepRestBuildings = ({
             contractWage: building.contractWage,
             shiftCost: building.config.shiftCost,
         }))
-        .filter(building => building.restCostObsd < REST_MAX_COST_OBSD[level - 1])
+        .filter(building => building.restCostObsd < economyValues.REST_MAX_COST_OBSD[level - 1])
         .sortBy(building => -building.restCostObsd)
         .value();
 };
@@ -944,8 +943,9 @@ const getRentMixedLandsAction = ({
     landConfigs,
     gameSettings,
 }) => {
+    const economyValues = getEconomyValues();
     const qualifiedBuildings = _(buildings)
-        .filter(building => building.level >= MIN_RENT_BUILDING_LEVELS[building.config.resourceType])
+        .filter(building => building.level >= economyValues.MIN_RENT_BUILDING_LEVELS[building.config.resourceType])
         .value();
 
     if (qualifiedBuildings.length === 0) {
@@ -972,7 +972,7 @@ const getRentMixedLandsAction = ({
                     rentPriceObsd: land.rentPriceObsd,
                     rentCost: land.rentCost,
                 }))
-                .filter(land => land.rentPriceObsd < MAX_LAND_RENT_PRICE_OBSD)
+                .filter(land => land.rentPriceObsd < economyValues.MAX_LAND_RENT_PRICE_OBSD)
                 .sortBy(land => -land.rentPriceObsd)
                 .value(),
         }))
@@ -1241,6 +1241,7 @@ const playGameCalcNextAction = async ({
     accountName,
     gameSettings,
 }) => {
+    const economyValues = getEconomyValues();
     const {
         exchange,
         account,
@@ -1251,7 +1252,7 @@ const playGameCalcNextAction = async ({
         landConfigs,
         upgradeConfigs,
         upgrades,
-    } = await fetchAllGameDat({
+    } = await fetchAllGameData({
         accountName,
     });
 
@@ -1380,35 +1381,36 @@ const playGameCalcNextAction = async ({
         upgrades,
     });
 
+    console.log(economyValues);
     if (finishUpgradesAction != null) {
         return finishUpgradesAction;
     }
 
-    if (startWorkerUpgradesAction != null) {
+    if (economyValues.ENABLE_WORKER_UPGRADES && startWorkerUpgradesAction != null) {
         return startWorkerUpgradesAction;
     }
 
-    if (rentExternalLandsAction != null) {
+    if (economyValues.ENABLE_RENT_EXTERNAL_LANDS && rentExternalLandsAction != null) {
         return rentExternalLandsAction;
     }
     
-    if (startMixedRestsAction != null) {
+    if (economyValues.ENABLE_REST_SKILLED_WORKERS && startMixedRestsAction != null) {
         return startMixedRestsAction;
     }
 
-    if (startMixedUnskilledRestAction != null) {
+    if (economyValues.ENABLE_REST_UNSKILLED_WORKERS && startMixedUnskilledRestAction != null) {
         return startMixedUnskilledRestAction;
     }
     
-    if (startRenewRentAction != null) {
+    if (economyValues.ENABLE_RENEW_RENT_LANDS && startRenewRentAction != null) {
         return startRenewRentAction;
     }
 
-    if (startMixedShiftsAction != null) {
+    if (economyValues.ENABLE_SHIFT_SKILLED_WORKERS && startMixedShiftsAction != null) {
         return startMixedShiftsAction;
     }
 
-    if (startMixedUnskilledShiftsAction != null) {
+    if (economyValues.ENABLE_SHIFT_UNSKILLED_WORKERS && startMixedUnskilledShiftsAction != null) {
         return startMixedUnskilledShiftsAction;
     }
 

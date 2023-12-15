@@ -8,6 +8,7 @@ const URLS = {
     [API_ENDPOINTS.ACCOUNTS]: 'https://wax.api.atomicassets.io/atomicassets/v1/accounts/',
     [API_ENDPOINTS.SALES]: 'https://wax.api.atomicassets.io/atomicmarket/v2/sales/',
     [API_ENDPOINTS.TEMPLATES]: 'https://wax.api.atomicassets.io/atomicassets/v1/templates/',
+    [API_ENDPOINTS.TEMPLATES_STATS]: 'https://wax.api.atomichub.io/atomicassets/v1/templates/${template_id}/stats',
     [API_ENDPOINTS.LOGS]: 'https://wax.api.atomicassets.io/atomicassets/v1/assets/${asset_id}/logs/',
     [API_ENDPOINTS.TRANSFERS]: 'https://wax.api.atomicassets.io/atomicassets/v1/transfers/',
 };

@@ -3,6 +3,7 @@ module.exports = {
     ACCOUNTS: 'ACCOUNTS',
     SALES: 'SALES',
     TEMPLATES: 'TEMPLATES',
+    TEMPLATES_STATS: 'TEMPLATES_STATS',
     LOGS: 'LOGS',
     TRANSFERS: 'TRANSFERS',
 };

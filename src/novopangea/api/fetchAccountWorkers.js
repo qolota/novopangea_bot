@@ -8,13 +8,14 @@ const fetchSpeedupConfigs = require('./fetchSpeedupConfigs');
 const fetchWorkers = require('./fetchWorkers');
 const fetchOngoingUpgrades = require('./fetchOngoingUpgrades');
 const {
-    UPGRADE_WORKERS_TO_LVL,
+    getEconomyValues,
 } = require('../consts/ECONOMY_VALUES');
 
 const fetchAccountWorkers = async ({
     accountName,
     cache = {},
 }) => {
+    const economyValues = getEconomyValues();
     const workerConfigs = cache.workerConfigs || await fetchWorkerConfigs({});
     const buildingConfigs = cache.buildingConfigs || await fetchBuildingConfigs({});
     const speedupConfigs = cache.speedupConfigs || await fetchSpeedupConfigs();
@@ -41,7 +42,7 @@ const fetchAccountWorkers = async ({
         .value();
     const readyToWorkWorkers = skilledStaleWorkers;
     const readyToUpgradeWorkers = _(skilledStaleWorkers)
-        .filter(worker => worker.level < UPGRADE_WORKERS_TO_LVL)
+        .filter(worker => worker.level < economyValues.UPGRADE_WORKERS_TO_LVL)
         .value();
     const workers = cache.workers || await fetchWorkers({
         cache: {

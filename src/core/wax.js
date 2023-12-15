@@ -9,9 +9,7 @@ export const wax = new waxjs.WaxJS({
 export const checkIsAutoLogin = async () => {
   const isAutoLoginAvailable = await wax.isAutoLoginAvailable();
   if (isAutoLoginAvailable) {
-    const pubKeys = wax.pubKeys;
     console.log(`AutoLogin enabled for account: ${wax.userAccount}`);
-    console.log(`Active: ${pubKeys[0]} Owner: ${pubKeys[1]}`);
   }
 };
 

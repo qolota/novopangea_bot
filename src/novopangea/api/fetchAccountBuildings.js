@@ -6,6 +6,7 @@ const fetchWorkerConfigs = require('./fetchWorkerConfigs');
 const sumResources = require('../utils/sumResources');
 const multiplyResources = require('../utils/multiplyResources');
 const BUILDINGS_TO_TOWNHALL = require('../consts/BUILDINGS_TO_TOWNHALL');
+const REST_BUILDINGS = ['rest', 'creature'];
 
 const fetchAccountBuildings = async ({
     accountName,
@@ -47,7 +48,7 @@ const fetchAccountBuildings = async ({
                     const workerConfig = workerConfigs.find(config => config.level === level);
 
                     const leveledResourceBuildings = _(buildings)
-                        .filter(building => building.config.resourceType !== 'rest')
+                        .filter(building => !REST_BUILDINGS.includes(building.config.resourceType))
                         .filter(building => building.level >= level && building.minWorkerLevel <= level)
                         .filter(building => (building.land.rentExpireTime - now) > SHIFT_TIME_MS)
                         .filter(building => building.contractWage.waxCost > 0)
@@ -219,10 +220,6 @@ const fetchAccountBuildings = async ({
         })
         .sortBy(building => -building.restCostObsd)
         .value();
-    // console.log(sets[3].buildings[4].bestExternalJob);
-    // console.log(sets[3].buildings[4].bestExternalRest);
-    // console.log(sets[3].buildings[4].bestOwnJob);
-    // console.log(sets[3].buildings[4].bestOwnRest);
 
     return {
         buildings: sets,

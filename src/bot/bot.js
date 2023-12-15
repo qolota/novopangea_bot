@@ -13,18 +13,16 @@ import claimWaxRewardCalcNextAction from '../core/claimWaxRewardCalcNextAction';
 
 let isBotStarted = false;
 const GAMES = {
-  // novopangea
-  NP_PLAY_GAME: {
-    duration: 20 * 1000,
-    validatorName: 'novopangea_play_game',
-    calcNextAction: playGameCalcNextAction,
+  claimwax: {
+    duration: 180 * 1000,
+    validatorName: 'claimwax',
+    calcNextAction: claimWaxRewardCalcNextAction,
   },
 
-  // wax
-  CLAIM_WAX_REWARD: {
-    duration: 180 * 1000,
-    validatorName: 'claim_wax_reward',
-    calcNextAction: claimWaxRewardCalcNextAction,
+  novopangea: {
+    duration: 20 * 1000,
+    validatorName: 'novopangea',
+    calcNextAction: playGameCalcNextAction,
   },
 };
 
@@ -104,12 +102,18 @@ export const startBot = () => {
   }
   isBotStarted = true;
 
-  const accountCapabilities = ACCOUNT_CAPABILITIES[wax.userAccount];
+  const allBotSettings = JSON.parse(localStorage.getItem('allBotSettings'));
 
   _(GAMES)
     .forEach((gameSettings, name) => {
-      if (!accountCapabilities[gameSettings.validatorName]) {
-        console.log(`Capability ${name} turned off for ${wax.userAccount} account`);
+      const botSettings = allBotSettings.find(botSettigns => botSettigns.key === gameSettings.validatorName);
+
+      if (botSettings == null) {
+        console.log(`Bot ${name} doesn't exist`);
+        return;
+      }
+      if (!botSettings.enabled) {
+        console.log(`Bot ${name} turned off`);
         return;
       }
     
@@ -119,6 +123,7 @@ export const startBot = () => {
         calcNextAction: gameSettings.calcNextAction,
         gameSettings: {
           ...gameSettings,
+          botParams: botSettings.params,
           isInProgress: false,
           interval: null,
           name,

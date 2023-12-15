@@ -1,4 +1,5 @@
-module.exports = {
+const _ = require('lodash');
+const ECONOMY_VALUES = {
     // set this value if you'd like to ugrage workers to a particular level
     UPGRADE_WORKERS_TO_LVL: 4,
     // maximum external land price bot will agree to
@@ -36,4 +37,36 @@ module.exports = {
         // level 5
         2.237,
     ],
+    // control values
+    ENABLE_WORKER_UPGRADES: true,
+    ENABLE_RENT_EXTERNAL_LANDS: true,
+    ENABLE_RENEW_RENT_LANDS: true,
+    ENABLE_REST_SKILLED_WORKERS: true,
+    ENABLE_REST_UNSKILLED_WORKERS: true,
+    ENABLE_SHIFT_SKILLED_WORKERS: true,
+    ENABLE_SHIFT_UNSKILLED_WORKERS: true,
+    BUSY_SKILLED_WORKERS_AMOUNT: {
+        Space: 40,
+        Time: 40,
+        Water: 40,
+        Light: 40,
+        Earth: 40,
+        Shadow: 40,
+    },
+};
+
+let currentEconomyValues = _.cloneDeep(ECONOMY_VALUES);
+
+const setEconomyValues = ({
+    economyValues,
+}) => {
+    currentEconomyValues = _.cloneDeep(economyValues);
+};
+
+const getEconomyValues = () => _.cloneDeep(currentEconomyValues);
+
+module.exports = {
+    setEconomyValues,
+    getEconomyValues,
+    ECONOMY_VALUES,
 };
