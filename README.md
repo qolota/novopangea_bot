@@ -1,96 +1,40 @@
-# Getting Started with Novopangea game bot
-
-
-## What can it do?
-1. Choose the best shift (sorted by profit) for both skilled and unskilled workers in your and other building.
-2. Renting other lands and plot buildings from a certain level.
-3. Ploting and prolong ploting on your lands.
-4. Rest workers in your and other residential buildings.
-5. Upgrad workers to a certain level.
-6. Don't need to build huge storages as NOVO will be used to store tokens.
+# Getting Started with WAX bot
 
 ## Donations 💵💵💵
 This is purely enthusiastic project and open source. You can use it for free.
 
 If you'd like the bot please support me by sending crypto or assets to my wallet: [ete2o.c.wam](https://atomichub.io/profile/wax-mainnet/ete2o.c.wam)
 
-## Install Git 
-Download and install Git from the website [https://git-scm.com/](https://git-scm.com/)
+## How to start using bot?
 
-## Clone repository
+1. Simply go to the [bot page](https://qolota.github.io/novopangea_bot/build/index.html)
+2. Click "Login" button
+3. Logging to your wallet when prompted
+4. Agree to login automatically
+5. Enable settings from the suggested list
+5. Click "Run" button
+6. Open a browser developer console to monitor what the bot is doing. To open a browser console press `Option + ⌘ + J` (on macOS), or `Shift + CTRL + J` (on Windows/Linux) in Chrome browser
 
-Open terminal and run command:
+## What can bot do?
+1. Vote and claim WAX for staked CPU on the daily basis 
+2. Play Novopangea game
 
-```
-git clone https://github.com/qolota/novopangea_bot.git
-```
+## What can novopangea bot do?
+1. Choose the best shift (sorted by profit) for both skilled and unskilled workers in your and other player buildings.
+2. Renting other lands and plot buildings from a certain level.
+3. Ploting and prolong ploting on your lands.
+4. Rest workers in your and other residential buildings.
+5. Upgrad workers to a certain level.
+6. Don't need to build huge storages as NOVO will be used to store tokens.
 
-wait until downloading will be completed
+### Known novopangea bot limitations
 
-
-## Install NodeJS
-
-Download and install NodeJS from [https://nodejs.org/en/download](https://nodejs.org/en/download)
-
-
-## Instlall yarn (package manager)
-
-Run command:
-
-```
-npm install --global yarn
-```
-
-Find more details on the official website [https://classic.yarnpkg.com/lang/en/docs/install/](https://classic.yarnpkg.com/lang/en/docs/install/)
-
-
-## Install bot dependencies
-
-Go to the folder and run a command to install dependencies
-```
-cd ./novopangea_bot
-yarn
-```
-
-wait until downloading will be completed
-
-
-## Start Novopangea bot web-page 
-
-Run command:
-
-```
-yarn start
-```
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.
-
-## Login into your wallet
-
-Open a browser developer console on the bot page `localhost:3000`. You can use `Option + ⌘ + J` (on macOS), or `Shift + CTRL + J` (on Windows/Linux) in Chrome browser.\
-Click login button.\
-You'll see cloud wallet popup.\
-Login as you usually do.\
-Check the logs you've been logged in and auto login enabled.
-Reload the page and check the logs one more time to verify you're logged in.
-
-## Start Novopangea bot
-
-Click `Start` button.\
-Check the logs bot is working.
-
-### Known limitations
-
-1. All assets should be staked first.
-2. The bot doesn't support creatures.
-3. No building upgrades, only workers.
-4. No way to open buildings for other shifts.
-5. No handy way to pause some activities e.g. external renting but you can comment lines in the file `./src/novopangea/playGameCalcNextAction.js`
+1. All assets should be staked first manually
+2. The bot doesn't support creatures
+3. No building auto-upgrades
+4. No way to open buildings for other players
 
 ## Donations 💵💵💵
 This is purely enthusiastic project and open source. You can use it for free.
 
-If you'd like the bot please support me by sending crypto or assets to my wallet: [ete2o.c.wam](https://waxblock.io/account/ete2o.c.wam)
+If you'd like the bot please support me by sending crypto or assets to my wallet: [ete2o.c.wam](https://atomichub.io/profile/wax-mainnet/ete2o.c.wam)
