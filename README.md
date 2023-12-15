@@ -7,7 +7,7 @@ If you'd like the bot please support me by sending crypto or assets to my wallet
 
 ## How to start using bot?
 
-1. Simply go to the [bot page](https://qolota.github.io/novopangea_bot/build/index.html)
+1. Simply go to the [bot page](https://qolota.github.io/wax_bot/build/index.html)
 2. Click "Login" button
 3. Logging to your wallet when prompted
 4. Agree to login automatically
