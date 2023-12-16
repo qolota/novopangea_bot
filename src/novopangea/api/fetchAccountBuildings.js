@@ -96,13 +96,6 @@ const fetchAccountBuildings = async ({
                     ])
                         .map(building => {
                             if (building.owner === accountName) {
-                                if (building.resourceType === 'food') {
-                                    return {
-                                        ...building,
-                                        jobProfitObsd: 1,
-                                    };
-                                }
-
                                 return {
                                     ...building,
                                     jobProfitObsd: building.yieldsObsd[level - 1],
