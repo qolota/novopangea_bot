@@ -1276,10 +1276,12 @@ const playGameCalcNextAction = async ({
             actions: _(accountWorkers.readyToWakeupWorkers)
                 .map(worker => worker.id)
                 .chunk(36)
-                .map(workerIds => wakeupWorkers({
-                    accountName,
-                    workerIds,
-                }))
+                .map(workerIds => ([
+                    wakeupWorkers({
+                        accountName,
+                        workerIds,
+                    }),
+                ]))
                 .value(),
         };
     }
