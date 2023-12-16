@@ -1272,14 +1272,15 @@ const playGameCalcNextAction = async ({
     if (accountWorkers.readyToWakeupWorkers.length > 0) {
         return {
             action: 'wakeup',
-            actions: [
-                wakeupWorkers({
+            isMultipleTransactions: true,
+            actions: _(accountWorkers.readyToWakeupWorkers)
+                .map(worker => worker.id)
+                .chunk(36)
+                .map(workerIds => wakeupWorkers({
                     accountName,
-                    workerIds: _(accountWorkers.readyToWakeupWorkers)
-                        .map(worker => worker.id)
-                        .value(),
-                }),
-            ],
+                    workerIds,
+                }))
+                .value(),
         };
     }
     
