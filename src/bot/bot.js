@@ -38,7 +38,7 @@ const startGameBot = ({ calcNextAction, gameSettings }) => {
       const account = await fetchWaxAccount({
         accountName: wax.userAccount,
       });
-      if (account.cpuLoad > 0.50) {
+      if (account.cpuLoad > 0.60) {
         log({
           project: gameSettings.name,
           message: `<cpu_limit> There is no available CPU. CPU usage is ${_.round(
@@ -64,7 +64,21 @@ const startGameBot = ({ calcNextAction, gameSettings }) => {
           await execTransaction({
             project: gameSettings.name,
             actions: signal.actions[i],
-          });  
+          });
+
+          const account = await fetchWaxAccount({
+            accountName: wax.userAccount,
+          });
+          if (account.cpuLoad > 0.60) {
+            log({
+              project: gameSettings.name,
+              message: `<cpu_limit> There is no available CPU. CPU usage is ${_.round(
+                account.cpuLoad * 100,
+              )}%`,
+              info: account,
+            });
+            break;
+          }
         }
       } else {
         await execTransaction({
