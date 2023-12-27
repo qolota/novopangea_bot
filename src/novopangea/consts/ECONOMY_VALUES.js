@@ -45,14 +45,6 @@ export const ECONOMY_VALUES = {
     ENABLE_REST_UNSKILLED_WORKERS: true,
     ENABLE_SHIFT_SKILLED_WORKERS: true,
     ENABLE_SHIFT_UNSKILLED_WORKERS: true,
-    BUSY_SKILLED_WORKERS_AMOUNT: {
-        Space: 40,
-        Time: 40,
-        Water: 40,
-        Light: 40,
-        Earth: 40,
-        Shadow: 40,
-    },
 };
 
 let currentEconomyValues = _.cloneDeep(ECONOMY_VALUES);

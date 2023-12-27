@@ -3,6 +3,7 @@ import CONTRACTS from '../consts/CONTRACTS';
 import fetchExchange from './fetchExchange';
 import fetchNovoPrice from './fetchNovoPrice';
 import convertAllCosts from '../utils/convertAllCosts';
+import BUILDING_TYPES from '../consts/BUILDING_TYPES';
 
 const fetchBuildingConfigs = async ({
     cache = {}
@@ -13,12 +14,14 @@ const fetchBuildingConfigs = async ({
         params: {
             code: CONTRACTS.GAME,
             scope: CONTRACTS.GAME,
-            table: "buildingcfg",
+            table: 'buildingcfg',
         },
         customProcessor: ({row}) => ({
             id: row.id,
             level: row.level,
             resourceType: row.resource_type,
+            buildingType: BUILDING_TYPES.RESOURCE_TYPE_TO_BUILDING_TYPE[row.resource_type],
+            allocationType: BUILDING_TYPES.RESOURCE_TYPE_TO_ALLOCATION_TYPE[row.resource_type],
             workerCapacity: row.worker_capacity,
             restTime: row.rest_time,
             minimumWage: convertAllCosts({

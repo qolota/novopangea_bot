@@ -27,6 +27,7 @@ const fetchAllWaxData2 = async ({
                 ..._.omit(params, [
                     'limit',
                     'lower_bound',
+                    // 'upper_bound',
                     'show_payer',
                     'reverse',
                     'json',
@@ -37,7 +38,7 @@ const fetchAllWaxData2 = async ({
             ignoreHttpErrorStatuses,
         });
 
-        if (data.code === 'ignore_http_status') {
+        if (data.code == 'ignore_http_status') {
             lowerBound = customLowerBoundProcessor({
                 lowerBound,
             });

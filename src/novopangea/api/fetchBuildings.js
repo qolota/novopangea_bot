@@ -14,6 +14,77 @@ import fetchAccounts from './fetchAccounts';
 
 const ONE_DAY = 60 * 60 * 24;
 const AVG_WAGE_OBSD = 1.15;
+const CREATURE_REST_TIME = 64800;
+
+const getRestBuildingProfile = ({
+    config,
+    district,
+    contractWage,
+    workerConfigs,
+    buildingLevel,
+}) => {
+    if (config.buildingType === 'rest') {
+        let restTime; 
+        if (config.allocationType === 'workers') {
+            restTime = REST_TIME[`townHall${district.level}`][buildingLevel - 1];
+        }
+        
+        if (config.allocationType === 'creatures') {
+            restTime = CREATURE_REST_TIME;
+        }
+
+        if (restTime == null) {
+            return {};
+        }
+
+        return {
+            restTime,
+            nRestPrice: restTime / ONE_DAY * contractWage.waxCost,
+            nRestPriceObsd: restTime / ONE_DAY * contractWage.obsdCost,
+            nOwnRestPrice: restTime / ONE_DAY * config.shiftCost.waxCost,
+            nOwnRestPriceObsd: restTime / ONE_DAY * config.shiftCost.waxCost,
+            ownRestsObsd: _(workerConfigs)
+                .map(workerConfig => {
+                    const wagePerSec = workerConfig.wageMultiplier * AVG_WAGE_OBSD / workerConfig.shiftTime;
+                    const restPrice = config.shiftCost.obsdCost + workerConfig.foodCost.obsdCost;
+                    const extraRestPrice = (restTime - workerConfig.shiftTime) * wagePerSec;
+
+                    return restPrice + extraRestPrice;
+                })
+                .value(),
+            externalRestsObsd: _(workerConfigs)
+                .map(workerConfig => {
+                    const wagePerSec = workerConfig.wageMultiplier * AVG_WAGE_OBSD / workerConfig.shiftTime;
+                    const restPrice = contractWage.obsdCost + workerConfig.foodCost.obsdCost;
+                    const extraRestPrice = (restTime - workerConfig.shiftTime) * wagePerSec;
+
+                    return restPrice + extraRestPrice;
+                })
+                .value(),
+        };
+    }
+
+    return {};
+}
+
+const getJobBuildingProfile = ({
+    config,
+    workerConfigs,
+    contractWage,
+}) => {
+    if (config.buildingType === 'job' && config.allocationType === 'workers') {
+        return {
+            wagesObsd: _(workerConfigs)
+                .map(workerConfig => _.round(contractWage.obsdCost * workerConfig.wageMultiplier, 4))
+                .value(),
+            yieldsObsd: _(workerConfigs)
+                .map(workerConfig => _.round(config.shiftYield.obsdCost * workerConfig.wageMultiplier - workerConfig.shiftCost.obsdCost, 4))
+                .value(),
+        };
+    }
+
+    return {};
+};
 
 const fetchBuildings = async ({
     cache = {},
@@ -64,18 +135,8 @@ const fetchBuildings = async ({
                 exchange,
                 novoPrice,
             });
-            const restTime = config.resourceType === 'rest'
-                ? REST_TIME[`townHall${district.level}`][row.level - 1]
-                : null;
-            const nRestPrice = restTime != null
-                ? restTime / ONE_DAY * contractWage.waxCost
-                : null;
-            const nRestPriceObsd = restTime != null
-                ? restTime / ONE_DAY * contractWage.obsdCost
-                : null;
-            const nOwnRestPrice = restTime != null
-                ? restTime / ONE_DAY * config.shiftCost.waxCost
-                : null;
+            const account = accounts.find(account => account.accountName === row.owner);
+            const land = lands.find(land => land.id === row.land_id);
 
             return {
                 id: row.id,
@@ -83,50 +144,25 @@ const fetchBuildings = async ({
                 assetId: row.asset_id,
                 district,
                 config,
-                land: lands.find(land => land.id === row.land_id),
+                account,
+                land,
                 contractWage,
-                isOnlyOwnWorkersAllowed: row.own_workers === 1,
-                minWorkerLevel: row.min_worker_level,
-                numWorkers: row.num_workers,
                 level: row.level,
-                restTime,
-                nRestPrice,
-                nRestPriceObsd,
-                nOwnRestPrice,
-                account: accounts.find(account => account.accountName === row.owner),
-                wagesObsd: config.resourceType !== 'rest'
-                    ?_(workerConfigs)
-                        .map(c => _.round(contractWage.obsdCost * c.wageMultiplier, 4))
-                        .value()
-                    : null,
-                yieldsObsd: config.resourceType !== 'rest'
-                    ?_(workerConfigs)
-                        .map(c => _.round(config.shiftYield.obsdCost * c.wageMultiplier - c.shiftCost.obsdCost, 4))
-                        .value()
-                    : null,
-                ownRestsObsd: config.resourceType === 'rest'
-                    ? _(workerConfigs)
-                        .map(c => {
-                            const wagePerSec = c.wageMultiplier * AVG_WAGE_OBSD / c.shiftTime;
-                            const restPrice = config.shiftCost.obsdCost + c.foodCost.obsdCost;
-                            const extraRestPrice = (restTime - c.shiftTime) * wagePerSec;
-
-                            return restPrice + extraRestPrice;
-                        })
-                        .value()
-                    : null,
-                externalRestsObsd: config.resourceType === 'rest'
-                    ? _(workerConfigs)
-                        .map(c => {
-                            const wagePerSec = c.wageMultiplier * AVG_WAGE_OBSD / c.shiftTime;
-                            const restPrice = contractWage.obsdCost + c.foodCost.obsdCost;
-                            const extraRestPrice = (restTime - c.shiftTime) * wagePerSec;
-
-                            return restPrice + extraRestPrice;
-                        })
-                        .value()
-                    : null,
-
+                numWorkers: row.num_workers,
+                minWorkerLevel: row.min_worker_level,
+                isOnlyOwnWorkersAllowed: row.own_workers === 1,
+                ...getJobBuildingProfile({
+                    config,
+                    contractWage,
+                    workerConfigs,
+                }),
+                ...getRestBuildingProfile({
+                    district,
+                    config,
+                    contractWage,
+                    workerConfigs,
+                    buildingLevel: row.level,
+                }),
             };
         },
     });

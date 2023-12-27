@@ -223,7 +223,6 @@ const getNextStateAfterExternalShiftStart = ({
     worker,
     account, // TODO validate max storage capacity
 }) => {
-    console.log(JSON.stringify(worker, null, 2));
     return {
         action: 'start_external_shift',
         actions: [

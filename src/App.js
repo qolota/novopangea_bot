@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import './App.css';
 import { useCallback, useEffect, useState } from 'react';
 import { wax } from './core/wax';
@@ -6,6 +7,7 @@ import {
   setEconomyValues,
   ECONOMY_VALUES,
 } from './novopangea/consts/ECONOMY_VALUES';
+import loadTemplates from './beastgarden/utils/loadTemplates';
 
 const getInitParams = () => ([
   {
@@ -166,6 +168,20 @@ function App() {
     ]);
   }, [allBotSettings, setAllBotSettings]);
 
+  const [bgBuyBack, setBgBuyBack] = useState({});
+  const [bgBuyBackAccountName, setBgBuyBackAccountName] = useState('');
+
+  const loadBgBuyBack = useCallback(() => {
+    const load = async () => {
+      const data = await loadTemplates({
+        accountName: bgBuyBackAccountName,
+      });
+      setBgBuyBack(data);
+    };
+
+    load();
+  }, [bgBuyBack, bgBuyBackAccountName, setBgBuyBack]);
+
   return (
     <div
       style={{
@@ -183,6 +199,36 @@ function App() {
       </div>
       <br/>
       <br/>
+      <br />
+      <div>
+        Open a browser developer console to monitor how bot is workign. To open a browser console press <code>Option + ⌘ + J</code> (on macOS), or <code>Shift + CTRL + J</code> (on Windows/Linux) in Chrome browser.
+      </div>
+      <br/>
+      <h2>Beastgardens</h2>
+      <div>
+        <label htmlFor='bg-buyback-input'>Enter wallet to calculate buyback share:</label>{' '}
+        <input id='bg-buyback-input' value={bgBuyBackAccountName} onChange={(event) => {
+          setBgBuyBackAccountName(event.target.value);
+        }}/>
+        <br/>
+        <button onClick={loadBgBuyBack}>Load buyback share</button>
+        <p>Be patient, might take up to 2-3 minutes</p>
+        {bgBuyBack.ACCOUNT_WEIGHTS != null
+          ? _(bgBuyBack.ACCOUNT_WEIGHTS)
+              .map((value, key) => {
+                return <div key={key}>
+                  <h3>{key}</h3>
+                  <div>Assets count: {value.assetsCount}</div>
+                  <div>Total weight: {value.totalWeight}</div>
+                  <div>Share: {value.share}%</div>
+                  <div>Buyback (WAX): {_.round(value.buybackPrice, 4)}</div>
+                </div>
+              })
+              .value()
+          : null
+        }
+      </div>
+      <h2>Novopangea</h2>
       {isBotStarted ? (
         <button onClick={_stopBot}>Stop</button>
       ) : (
@@ -193,10 +239,6 @@ function App() {
       <br />
       <button onClick={resetSettings}>Reset Settings</button>
       <div><b>All changed settings applied immediately!!!</b></div>
-      <br />
-      <div>
-        Open a browser developer console to monitor how bot is workign. To open a browser console press <code>Option + ⌘ + J</code> (on macOS), or <code>Shift + CTRL + J</code> (on Windows/Linux) in Chrome browser.
-      </div>
       <br />
       <br />
       {allBotSettings.map(botSettings => {
